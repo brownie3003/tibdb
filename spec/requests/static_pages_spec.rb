@@ -7,20 +7,15 @@ describe "StaticPages" do
 	describe "Home page" do
 
 		it "should have the content 'TiB Assignment Database'" do
-			visit '/static_pages/home'
+			visit root_path
 			expect(page).to have_content("TiB Assignment Database")
-		end
-
-		it "should have the title 'Home'" do
-			visit '/static_pages/home'
-			expect(page).to have_title("#{base_title} Home")
 		end
 	end
 
 	describe "Help page" do
 
 		it "should have content 'Help'" do
-			visit '/static_pages/help'
+			visit help_path
 			expect(page).to have_content('Help')
 		end
 	end
@@ -28,7 +23,7 @@ describe "StaticPages" do
 	describe "About page" do
 
 		it "should have content 'About Us'" do
-			visit '/static_pages/about'
+			visit about_path
 			expect(page).to have_content('About Us')
 		end
 	end
@@ -36,7 +31,7 @@ describe "StaticPages" do
 	describe "Assignment page" do
 
 		it "should have content 'Assignments'" do
-			visit '/static_pages/assignments'
+			visit assignments_path
 			expect(page).to have_content("Assignments Listing")
 		end
 	end

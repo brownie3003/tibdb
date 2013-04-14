@@ -10,4 +10,7 @@ class StaticPagesController < ApplicationController
 
   def assignments
   end
+
+  def contact
+  end
 end
