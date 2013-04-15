@@ -3,36 +3,35 @@ require 'spec_helper'
 describe "StaticPages" do
 
 	let(:base_title) { "TiB Assignment DB App |"}
+	subject { page }
 
 	describe "Home page" do
+		before { visit root_path }
 
-		it "should have the content 'TiB Assignment Database'" do
-			visit root_path
-			expect(page).to have_content("TiB Assignment Database")
-		end
+		it { should have_content("TiB Assignment Database") }
 	end
 
 	describe "Help page" do
+		before { visit help_path }
 
-		it "should have content 'Help'" do
-			visit help_path
-			expect(page).to have_content('Help')
-		end
+		it { should have_content('Help') }
 	end
 
 	describe "About page" do
+		before { visit about_path }
 
-		it "should have content 'About Us'" do
-			visit about_path
-			expect(page).to have_content('About Us')
-		end
+		it { should have_content('About Us') }
 	end
 
-	describe "Assignment page" do
+	describe "Assignments page" do
+		before { visit assignments_path }
 
-		it "should have content 'Assignments'" do
-			visit assignments_path
-			expect(page).to have_content("Assignments Listing")
-		end
+		it { should have_content("Assignments Listing") }
+	end
+
+	describe "Contact page" do
+		before { visit contact_path }
+
+		it { should have_content("Contact") }
 	end
 end
