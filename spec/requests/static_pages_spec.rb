@@ -2,36 +2,68 @@ require 'spec_helper'
 
 describe "StaticPages" do
 
-	let(:base_title) { "TiB Assignment DB App |"}
 	subject { page }
+
+	shared_examples_for "all static pages" do
+		it { should have_content(heading) }
+		it { should have_title(full_title(page_title)) }
+	end
+
+	# Check the links are correct
+	it "should have the right links on the layout" do
+    	visit root_path
+    	click_link "About"
+    	expect(page).to have_title(full_title('About'))
+    	click_link "Help"
+    	expect(page).to have_title(full_title('Help'))
+    	click_link "Contact"
+    	expect(page).to have_title(full_title('Contact'))
+    	click_link "Home"
+    	expect(page).not_to have_title(full_title('Home'))
+    	click_link "Sign up now!"
+    	expect(page).to have_title(full_title('Sign up'))
+    	click_link "TiB Assignment DB"
+    	expect(page).not_to have_title(full_title('Home'))
+  	end
 
 	describe "Home page" do
 		before { visit root_path }
+		let(:heading)		{ 'TiB Assignment Database' }
+		let(:page_title)	{ '' }
 
-		it { should have_content("TiB Assignment Database") }
+		it_should_behave_like "all static pages"
+		it { should_not have_title("Home") }
 	end
 
 	describe "Help page" do
 		before { visit help_path }
+		let(:heading)		{ 'TiB Assignment Database' }
+		let(:page_title)	{ 'Help' }
 
-		it { should have_content('Help') }
+		it_should_behave_like "all static pages"
 	end
 
 	describe "About page" do
 		before { visit about_path }
+		let(:heading)		{ 'TiB Assignment Database' }
+		let(:page_title)	{ 'About' }
 
-		it { should have_content('About Us') }
+		it_should_behave_like "all static pages"
 	end
 
 	describe "Assignments page" do
 		before { visit assignments_path }
+		let(:heading)		{ 'TiB Assignment Database' }
+		let(:page_title)	{ 'Assignments' }
 
-		it { should have_content("Assignments Listing") }
+		it_should_behave_like "all static pages"
 	end
 
 	describe "Contact page" do
 		before { visit contact_path }
+		let(:heading)		{ 'TiB Assignment Database' }
+		let(:page_title)	{ 'Contact' }
 
-		it { should have_content("Contact") }
+		it_should_behave_like "all static pages"
 	end
 end
