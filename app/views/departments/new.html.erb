@@ -1,4 +1,18 @@
 <% provide(:title, "Add Department") %>
 <h1>Add Department</h1>
 
-<p> This will be a form to add a new department for grade managers </p>.
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(@department) do |f| %>
+			<%= render 'shared/department_error_messages' %>
+	
+			<%= f.label :full_name, "Full Department Title" %>
+			<%= f.text_field :full_name %>
+	
+			<%= f.label :abbreviation, "Department Abbreviation" %>
+			<%= f.text_field :abbreviation %>
+	
+			<%= f.submit "Add department", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>

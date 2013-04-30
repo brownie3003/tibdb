@@ -1,0 +1,12 @@
+<% provide(:title, "Profile for #{@user.first_name} #{@user.last_name}") %>
+<div class="row">
+	<aside class="span5">
+		<section>
+			<h1>
+				<%= gravatar_for @user %>
+				<%= @user.first_name %> <%= @user.last_name %>
+			</h1>
+			<p> Currently at the <%= @user.department %> </p>
+		</section>
+	</aside>
+</div>
