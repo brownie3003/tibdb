@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="span6 offset3">
 		<%= form_for(@department) do |f| %>
-			<%= render 'shared/department_error_messages' %>
+			<%= render 'shared/error_messages' %>
 	
 			<%= f.label :full_name, "Full Department Title" %>
 			<%= f.text_field :full_name %>
