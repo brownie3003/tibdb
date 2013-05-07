@@ -1,8 +1,10 @@
-<% if params[:controller] == "users" %>
-	<% controller = @user %>
-<% elsif params[:controller] == "departments" %>
-	<% controller = @department %>
-<% end %>
+<% 	
+if params[:controller] == "users"
+	controller = @user 
+elsif params[:controller] == "departments" 
+	controller = @department 
+end 
+%>
 
 <% if controller.errors.any? %> 
 	<div id="error_explanation">
