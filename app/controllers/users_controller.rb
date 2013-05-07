@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new
+        @department = Department.all
 	end
 
 	def create

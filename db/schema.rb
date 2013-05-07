@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130503112314) do
+ActiveRecord::Schema.define(version: 20130507103551) do
+
+  create_table "assignments", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "band"
+    t.date     "start_date"
+    t.string   "length"
+    t.integer  "department_id"
+    t.integer  "user_id"
+    t.string   "department"
+    t.string   "manager"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "assignments", ["department_id", "created_at"], name: "index_assignments_on_department_id_and_created_at"
 
   create_table "departments", force: true do |t|
     t.string   "full_name"
@@ -24,12 +40,12 @@ ActiveRecord::Schema.define(version: 20130503112314) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.string   "department"
     t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.integer  "department_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

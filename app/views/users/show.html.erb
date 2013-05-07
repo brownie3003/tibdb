@@ -6,7 +6,7 @@
 				<%= gravatar_for @user %>
 				<%= @user.first_name %> <%= @user.last_name %>
 			</h1>
-			<p> Currently at the <%= @user.department %> </p>
+			<p> Currently at the <%= @user.department.full_name %> </p>
 		</section>
 	</aside>
 </div>

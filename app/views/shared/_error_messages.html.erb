@@ -1,0 +1,18 @@
+<% if params[:controller] == "users" %>
+	<% controller = @user %>
+<% elsif params[:controller] == "departments" %>
+	<% controller = @department %>
+<% end %>
+
+<% if controller.errors.any? %> 
+	<div id="error_explanation">
+		<div class="alert alert-error">
+			The form contains <%= pluralize(controller.errors.count, "error") %>.
+		</div>
+		<ul>
+			<% controller.errors.full_messages.each do |msg| %>
+				<li>* <%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
