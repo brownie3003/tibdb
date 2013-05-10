@@ -51,7 +51,7 @@ describe "Authentication" do
 		describe "for non-signed-in users" do
 			let(:user) { FactoryGirl.create(:user) }
 
-			describe "when attempting to visit a protected page" do
+			describe "when attempting to visit Edit user page" do
 				before do
 					visit edit_user_path(user)
 					fill_in "Email", 	with: user.email
@@ -77,6 +77,19 @@ describe "Authentication" do
 				describe "submitting to the update action" do
 					before { patch user_path(user) }
 					specify { expect(response).to redirect_to signin_path }
+				end
+			end
+
+			describe "in the Assignments controller"
+				let(:department) { FactoryGirl.create(:department) }
+				let(:user)	{ FactoryGirl.create(:user, department: department)}
+				before do
+					@assignment = department.assignments.build(title: "Example of Job Role", description: "Example of the description of a role", band: "Band A", start_date: 27/05/2013, length: "6 months", user_id: 1)
+				end
+					
+				describe "visiting specific assignment page" do
+					before { visit assignment_path(assignment.id) }
+					it { should have_title("Sign in") }
 				end
 			end
 		end

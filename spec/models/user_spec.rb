@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe User do
 	
-	before { @user = User.new(first_name: "Example", last_name: "User", email: "user@department.gsi.gov.uk", department: "Ministry of Justice", role: "TiB", password: "test123", password_confirmation: "test123")}
+	let(:department) { FactoryGirl.create(:department) }
+	before { @user = department.users.build(first_name: "Example", last_name: "User", email: "user@department.gsi.gov.uk", role: "TiB", password: "test123", password_confirmation: "test123")}
 
 	subject { @user }
 
@@ -16,6 +17,7 @@ describe User do
 	it { should respond_to(:password_confirmation) }
 	it { should respond_to(:authenticate) }
 	it { should respond_to(:authenticate) }
+	it { should respond_to(:assignments) }
 
 	it { should be_valid }
 
@@ -23,7 +25,7 @@ describe User do
 	# not be valid when only 1 - 4 fields are filled in, but the test is so simple
 	# I'm not repeating it for 5 fields, probably can refactor this.
 	describe "when any sign up field is blank" do
-		before { @user.first_name = " " && @user.last_name = " " && @user.email = " " && @user.department = " " && @user.role = " " }
+		before { @user.first_name = " " && @user.last_name = " " && @user.email = " " && @user.department_id = " " && @user.role = " " }
 		it { should_not be_valid }
 	end
 

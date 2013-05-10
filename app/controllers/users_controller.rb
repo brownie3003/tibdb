@@ -41,8 +41,7 @@ class UsersController < ApplicationController
         def user_params
   		# This says that params[:department] is required, but inside that, only params[:department][:full_name] and 
   		# params[:department][:abbreviation] are permitted. Unpermitted params will be stripped out  		
-
-  		  params.require(:user).permit!
+            params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :department_id, :role,)
   		end
 
         # Before filters

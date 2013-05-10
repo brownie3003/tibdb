@@ -1,3 +1,26 @@
 <% provide(:title, 'Assignments') %>
 <h1>Assignments Listing</h1>
-<p>This page will list all the jobs posted by users</p>
+
+<%= will_paginate %>
+
+<ul class="assignments">
+	<% @assignments.each do |assignment| %>
+		<section>
+			<h2><%= assignment.title %></h2>
+			<pre>
+			<table>
+				<tr>
+					<td id="role1"><p><strong>Role description</strong></td><td id="role2" colspan="5"><%= assignment.description %></p></td>
+				</tr>
+				<tr>
+					<td id="department1"><p><strong>Department:</strong></td><td id="department2"><%= assignment.department.full_name %></p></td><td id="start-date1"><p><strong>Start date:</strong></td><td id="start-date2"><%= assignment.start_date %></p></td><td id="length1"><p><strong>Assignment length:</strong></td><td id="length2"><%= assignment.length %></p></td>
+				</tr>
+			</table>
+			<%= link_to "See full details", assignment_path(assignment), class: "btn btn-large btn-primary pull-right" %>
+			</pre>
+		</section>
+		</br>
+	<% end %>
+</ul>
+
+<%= will_paginate %>

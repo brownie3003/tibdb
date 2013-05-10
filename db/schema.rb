@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130507103551) do
+ActiveRecord::Schema.define(version: 20130510141656) do
 
   create_table "assignments", force: true do |t|
     t.string   "title"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20130507103551) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.integer  "department_id"
+    t.boolean  "admin",           default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

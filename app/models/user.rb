@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
   	validates :password_confirmation, presence: true
   	validates :password, length: { minimum: 6 }
 
-  	## needs work to assign department rather than string of department on signup
   	belongs_to :department
+  	has_many :assignments
 
   	private
 
