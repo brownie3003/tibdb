@@ -1,7 +1,7 @@
 class Assignment < ActiveRecord::Base
 	belongs_to :department
 	belongs_to :user
-	default_scope -> { order('start_date ASC') }
+	
 
 	validates :title, presence: true, length: { minimum: 6 }
 	validates :description, presence: true, length: { minimum: 30 }

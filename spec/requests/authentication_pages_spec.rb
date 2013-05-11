@@ -82,7 +82,7 @@ describe "Authentication" do
 
 			describe "in the Assignments controller"
 				let(:department) { FactoryGirl.create(:department) }
-				let(:user)	{ FactoryGirl.create(:user, department: department)}
+				let(:user)	{ FactoryGirl.create(:user, department: department) }
 				before do
 					@assignment = department.assignments.build(title: "Example of Job Role", description: "Example of the description of a role", band: "Band A", start_date: 27/05/2013, length: "6 months", user_id: 1)
 				end
