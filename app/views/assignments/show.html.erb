@@ -5,5 +5,14 @@
     	<h1>
         	<%= @assignment.title %>
         </h1>
+        <p> <%= @assignment.description %> </p>
+        <p> <%= @assignment.band %> </p>
+        <p> <%= @assignment.start_date %> </p>
+        <p> <%= @assignment.length %> </p>
+        <%= mail_to @assignment.user.email, "Contact Manager", class: "btn btn-large btn-primary pull-right" %>
+        <% if @assignment.user == current_user %>
+        	<%= link_to "Delete Post", @assignment, method: :delete, data: { confirm: "Are you sure you want to delete the assignment, it can not be retreived" }, class: "btn btn-large btn-danger pull-left" %>
+        	<%= link_to "Edit", edit_assignment_path(@assignment), class: "btn btn-large btn-warning pull-left"%>
+        <% end %>
     </div>
 </div>

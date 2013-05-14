@@ -1,5 +1,5 @@
 class AssignmentsController < ApplicationController
-	before_action :signed_in_user, only: [:edit, :update]
+	before_action :signed_in_user, only: [:show, :edit, :update]
 
 	def index
         @assignments = Assignment.paginate(page: params[:page], per_page: 5).order("start_date ASC")
@@ -22,9 +22,25 @@ class AssignmentsController < ApplicationController
         end
     end
 
+    def edit
+        @assignment = Assignment.find(params[:id])
+    end
 
+    def update
+        @assignment = Assignment.find(params[:id])
+        if @assignment.update_attributes(assignment_params)
+            flash[:success] = "Assignment updated"
+            redirect_to assignment_path(@assignment)
+        else
+            render 'edit'
+        end
+    end
 
-
+    def destroy
+        Assignment.find(params[:id]).destroy
+        flash[:success] = "Assignment deleted."
+        redirect_to current_user
+    end   
 private
         def assignment_params
   		  params.require(:assignment).permit!
