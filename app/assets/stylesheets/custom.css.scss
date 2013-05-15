@@ -156,6 +156,17 @@ input, textarea, select, .uneditable-input {
   @include box_sizing;
 }
 
+#assignment_start_date_3i {
+  width: 20%;
+}
+
+#assignment_start_date_2i {
+  width: 30%;
+}
+
+#assignment_start_date_1i {
+  width: 20%;
+}
 input, select {
   height: auto !important;
 }

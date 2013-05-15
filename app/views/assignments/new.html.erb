@@ -19,7 +19,7 @@
                   <%= f.text_field :band %>
 
                   <%= f.label :start_date, "Start Date" %>
-                  <%= f.text_field :start_date %>
+                  <%= f.date_select :start_date, order: [:day, :month, :year] %>
 
                   <%= f.label :length, "Assignment length" %>
                   <%= f.select :length, ["3 months", "6 months", "12 months"] %>
