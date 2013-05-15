@@ -1,6 +1,23 @@
 <% provide(:title, 'Assignments') %>
 <h1>Assignments Listing</h1>
 
+<div class="accordion" id="accordion2">
+  	<div class="accordion-group">
+    	<div class="accordion-heading">
+      		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        		Filter Assignments by Department
+      		</a>
+    	</div>
+    	<div id="collapseOne" class="accordion-body collapse in">
+      		<div class="accordion-inner">
+        		<% @departments.each do |dept| %>
+        			<button class="btn btn-success"><%= dept.full_name %></button>
+        		<% end %>
+      		</div>
+    	</div>
+  	</div>
+</div>
+
 <%= will_paginate %>
 
 <ul class="assignments">

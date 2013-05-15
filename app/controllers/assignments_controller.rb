@@ -3,6 +3,7 @@ class AssignmentsController < ApplicationController
 
 	def index
         @assignments = Assignment.paginate(page: params[:page], per_page: 5).order("start_date ASC")
+        @departments = Department.all
     end
 
     def show
