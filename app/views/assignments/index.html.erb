@@ -31,7 +31,7 @@
 				<div>
 					<%= assignment.description %>
 				</div>
-				<p><strong>Department:</strong><%= assignment.department.full_name %><strong>Start date:</strong><%= assignment.start_date %><strong>Assignment length:</strong><%= assignment.length %></p>
+				<p><strong>Department: </strong><%= assignment.department.full_name %> |<strong> Start date: </strong><%= assignment.start_date %> |<strong> Assignment length: </strong><%= assignment.length %> |</p>
 				<%= link_to "See full details", assignment_path(assignment), class: "btn btn-primary" %>
 		</div>
 		</br>
