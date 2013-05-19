@@ -8,7 +8,7 @@
         		Filter Assignments by Department
       		</a>
     	</div>
-    	<div id="collapseOne" class="accordion-body collapse in">
+    	<div id="collapseOne" class="accordion-body collapse">
       		<div class="accordion-inner">
       			<h3> Not currently working </h3>
         		<% @departments.each do |dept| %>
@@ -23,20 +23,17 @@
 
 <ul class="assignments">
 	<% @assignments.each do |assignment| %>
-		<section>
+		<div id=assignment>
 			<h2><%= assignment.title %></h2>
-			<pre>
-			<table>
-				<tr>
-					<td id="role1"><p><strong>Role description</strong></td><td id="role2" colspan="5"><%= assignment.description %></p></td>
-				</tr>
-				<tr>
-					<td id="department1"><p><strong>Department:</strong></td><td id="department2"><%= assignment.department.full_name %></p></td><td id="start-date1"><p><strong>Start date:</strong></td><td id="start-date2"><%= assignment.start_date %></p></td><td id="length1"><p><strong>Assignment length:</strong></td><td id="length2"><%= assignment.length %></p></td>
-				</tr>
-			</table>
-			<%= link_to "See full details", assignment_path(assignment), class: "btn btn-large btn-primary pull-right" %>
-			</pre>
-		</section>
+				<div>
+					<strong>Role description:</strong>
+				</div>
+				<div>
+					<%= assignment.description %>
+				</div>
+				<p><strong>Department:</strong><%= assignment.department.full_name %><strong>Start date:</strong><%= assignment.start_date %><strong>Assignment length:</strong><%= assignment.length %></p>
+				<%= link_to "See full details", assignment_path(assignment), class: "btn btn-primary" %>
+		</div>
 		</br>
 	<% end %>
 </ul>

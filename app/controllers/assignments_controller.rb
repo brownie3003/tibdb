@@ -2,6 +2,7 @@ class AssignmentsController < ApplicationController
 	before_action :signed_in_user, only: [:show, :edit, :update]
 
 	def index
+        @search
         @assignments = Assignment.paginate(page: params[:page], per_page: 5).order("start_date ASC")
         @departments = Department.all
     end

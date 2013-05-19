@@ -187,56 +187,6 @@ input, select {
 /* Assignments index */
 
 .assignments {
-  h2 {
-    color: black;
-    text-decoration: underline;
-  }
-  table {
-    border: none;
-  }
-  section {
-    padding: 10px;
-  }
-  #role1 {
-    vertical-align: top;
-    padding-top: -1px;
-  }
-  #role2 {
-    padding-left: 5px;
-    word-wrap: break-word;
-  }
-  #department1{
-    width: 150px;
-    text-align: right;
-    text-decoration: bold;
-    padding-top: 2px;
-  }
-  #department2{
-    width: 180px;
-    padding-left: 5px
-  }
-  #start-date1{
-    width: 120px;
-    text-align: right;
-    text-decoration: bold;
-    padding-top: 2px;
-  }
-  #start-date2{
-    width: 110px;
-    padding-left: 5px
-  }
-  #length1{
-    width: 160px;
-    text-align: right;
-    text-decoration: bold;
-    padding-top: 2px;
-  }
-  #length2{
-    width: 130px;
-    padding-left: 5px
-  }
-  pre{
-  }
 }
 
 /* Users index */
