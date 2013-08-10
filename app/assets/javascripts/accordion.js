@@ -1,0 +1,4 @@
+(function() {
+	$('#collapseOne').collapse('hide');
+});
+
